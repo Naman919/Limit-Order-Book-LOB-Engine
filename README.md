@@ -1,2 +1,30 @@
 # Limit-Order-Book-LOB-Engine
-Built a high-performance Limit Order Book (LOB) in C++ and Python implementing price-time priority, order matching, cancellations, and real-time top-of-book updates. Benchmarked both versions on 100k+ orders, demonstrating scalability, deterministic execution, and performance optimization across languages.
+
+A high-performance Limit Order Book (LOB) implementation designed to demonstrate the trade-offs between **ultra-low latency execution (C++)** and **quantitative research flexibility (Python)**.
+
+## 📌 Project Overview
+Limit-Order-Book-LOB-Engine implements a **Price-Time Priority (FIFO)** matching engine. It is designed to handle high-throughput order flow while maintaining deterministic $O(1)$ complexity for core operations like placement and cancellation.
+
+### Key Components
+* **`/cpp`**: The "Hot Path" execution engine. Focused on memory locality and zero-garbage-collection latency.
+* **`/python`**: The "Research Layer." Optimized for strategy backtesting and rapid prototyping using lazy-cancellation logic.
+* **`/benchmarks`**: Comparative analysis of throughput and latency across both implementations.
+
+## 📊 Performance at a Glance
+Results based on 100,000 randomized order operations (50k Buys, 50k Sells, ~6.6k Cancels):
+
+| Metric | C++ (O3 Optimized) | Python (Amortized) |
+| :--- | :--- | :--- |
+| **Execution Time** | `66` ms | `0.1497` s |
+| **Complexity** | Strict $O(1)$ | Amortized $O(1)$ |
+| **Memory Strategy** | Pointer Mapping | Lazy-Flagging |
+
+## 🚀 Quick Start
+1.  **Clone the repo:** `git clone https://github.com/Naman919/Limit-Order-Book-LOB-Engine.git`
+2.  **Navigate into the project directory:** `cd Limit-Order-Book-LOB-Engine`
+3.  **Install Python deps:** `pip install -r requirements.txt`
+4.  **Run C++ Benchmark:** See `cpp/README.md`
+5.  **Run Python Research:** See `python/README.md`
+
+---
+*Developed as part of a Quantitative Engineering Portfolio.*
