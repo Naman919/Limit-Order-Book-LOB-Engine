@@ -10,6 +10,27 @@ Limit-Order-Book-LOB-Engine implements a **Price-Time Priority (FIFO)** matching
 * **`/python`**: The "Research Layer." Optimized for strategy backtesting and rapid prototyping using lazy-cancellation logic.
 * **`/benchmarks`**: Comparative analysis of throughput and latency across both implementations.
 
+## 📁 Project Structure
+```
+limit-order-book/
+│
+├── cpp/
+│   ├── main.cpp                # High-performance C++ matching engine
+│   └── README.md               # Technical deep-dive into C++ optimizations
+│
+├── python/
+│   ├── orderbook.py            # Research-oriented Python matching engine
+│   └── README.md               # Explanation of Pythonic "Lazy Cancellation"
+│
+├── benchmarks/
+│   ├── benchmark_results.txt   # Raw performance output data
+│   └── analysis.md             # Detailed C++ vs. Python latency report
+│
+├── requirements.txt
+├── README.md                   # MAIN project description
+└── .gitignore'
+```
+
 ## 📊 Performance at a Glance
 Results based on 100,000 randomized order operations (50k Buys, 50k Sells, ~6.6k Cancels):
 
@@ -25,6 +46,10 @@ Results based on 100,000 randomized order operations (50k Buys, 50k Sells, ~6.6k
 3.  **Install Python deps:** `pip install -r requirements.txt`
 4.  **Run C++ Benchmark:** See `cpp/README.md`
 5.  **Run Python Research:** See `python/README.md`
+
+## License
+
+MIT License
 
 ---
 *Developed as part of a Quantitative Engineering Portfolio.*
